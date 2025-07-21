@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Inscripción Exitosa - Hashi Dojo{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <!-- Logo -->
+    <img src="{% static 'images/logo.png' %}" alt="Logo Hashi Dojo" width="100" class="mb-3">
+
+    <!-- Animación de éxito -->
+    <div class="checkmark-wrapper mb-4">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+        </svg>
+    </div>
+
+    <h2 class="text-success fw-bold">¡Inscripción exitosa!</h2>
+    <p class="lead">Gracias por registrarte. Nos pondremos en contacto pronto.</p>
+    <a href="{% url 'inicio' %}" class="btn btn-outline-primary mt-3">Volver al inicio</a>
+</div>
+
+<style>
+.checkmark-wrapper {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.checkmark {
+    width: 80px;
+    height: 80px;
+    stroke: #28a745;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+    fill: none;
+    animation: scale .3s ease-in-out .9s both;
+}
+.checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: stroke .6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+.checkmark-check {
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke .3s .6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+@keyframes stroke {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+</style>
+{% endblock %}

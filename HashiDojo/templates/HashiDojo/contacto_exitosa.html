@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}¡Gracias por tu mensaje!{% endblock %}
+
+{% block content %}
+<div class="container text-center my-5">
+    <h2 class="text-success">¡Gracias por tu mensaje!</h2>
+    <p>Nos pondremos en contacto contigo a la brevedad.</p>
+    <a href="{% url 'inicio' %}" class="btn btn-primary">Volver al inicio</a>
+</div>
+{% endblock %}

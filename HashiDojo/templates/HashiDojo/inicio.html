@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Hashi Dojo{% endblock %}
+
+{% block content %}
+<div class="text-center my-3">
+    <h1 class="display-4 fw-bold">Bienvenidos a Hashi Dojo</h1>
+    <p class="lead mt-2">
+        En Hashi Dojo cultivamos el espíritu del Aikido: un arte marcial que fomenta la armonía, la disciplina y la defensa sin violencia.
+    </p>
+</div>
+
+<div class="row align-items-center">
+    <div class="col-md-6 text-center">
+        <img style="width: 40%;" src="{% static 'images/logo.png'%}" class="img-fluid" alt="Logo de Escuela Hashi Dojo">
+    </div>
+    <div class="col-md-6 mt-4 mt-md-0">
+        <h2 class="fw-semibold">¿Qué es Aikido?</h2>
+        <p>
+            El Aikido es un arte marcial japonés moderno fundado por Morihei Ueshiba. Su filosofía se basa en la neutralización del conflicto
+            mediante técnicas de proyección y control, sin recurrir a la agresión.
+        </p>
+        <p>
+            En Hashi Dojo nos enfocamos en la formación integral del practicante, trabajando cuerpo, mente y espíritu. Todas las edades y niveles son bienvenidos.
+        </p>
+    </div>
+</div>
+
+<div class="text-center mt-5">
+    <a href="{% url 'inscripcion' %}" class="btn btn-primary btn-lg">¡Sumate hoy!</a>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Horarios de Clases{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-4">Horarios Semanales</h1>
+
+    <div class="table-responsive">
+        <table class="table table-bordered text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Horario</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Fila: 18:00 - 20:00 -->
+                <tr>
+                    <th class="bg-light">18:00 - 20:00</th>
+                    <td class="bg-info text-white fw-semibold">Niños</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="bg-info text-white fw-semibold">Niños</td>
+                </tr>
+                <!-- Fila: 21:30 - 23:30 -->
+                <tr>
+                    <th class="bg-light">21:30 - 23:30</th>
+                    <td></td>
+                    <td class="bg-primary text-white fw-semibold">Adultos</td>
+                    <td></td>
+                    <td class="bg-primary text-white fw-semibold">Adultos</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'inicio' %}" class="btn btn-outline-primary">Volver al inicio</a>
+    </div>
+</div>
+{% endblock %}
