@@ -3,5 +3,9 @@ from django.urls import path, include
 from usuarios import views
 
 urlpatterns = [
-    path('', views.inicio, name='inicio'),
+    path('registro/', views.UserRegistrationView.as_view() , name='registro'),
+    path('login/', views.LoginUsuario.as_view(), name='login'),
+    path('logout/', views.LogoutUsuario.as_view(), name='logout'),
+    path('perfil/', views.PerfilUsuario.as_view(), name='perfil'),
+    path('editar_perfil/', views.EditarPerfilUsuario.as_view(), name='editar_perfil'),
 ]

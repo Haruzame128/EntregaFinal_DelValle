@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Perfil de Usuario{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Perfil de {{ request.user.username }}</h4>
+        </div>
+        <div class="card-body text-center">
+            {% if perfil %}
+                <img src="{{ perfil.avatar.url }}" class="rounded-circle mb-3" width="150" height="150" alt="Avatar">
+                <p><strong>Usuario:</strong> {{ request.user.username }}</p>
+                <p><strong>Email:</strong> {{ request.user.email }}</p>
+                {% if request.user.first_name %}
+                    <p><strong>Nombre:</strong> {{ request.user.first_name }}</p>
+                {% endif %}
+                {% if request.user.last_name %}
+                    <p><strong>Dirección:</strong> {{ request.user.last_name }}</p>
+                {% endif %}
+                {% if perfil.telefono %}
+                    <p><strong>Teléfono:</strong> {{ perfil.telefono }}</p>
+                {% endif %}
+
+                {% if perfil.direccion %}
+                    <p><strong>Dirección:</strong> {{ perfil.direccion }}</p>
+                {% endif %}
+                
+            {% else %}
+                <p>No hay datos de perfil disponibles.</p>
+            {% endif %}
+            <a href="{% url 'editar_perfil' %}" class="btn btn-outline-primary">Editar Perfil</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

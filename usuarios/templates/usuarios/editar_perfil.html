@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Editar Perfil - Hashi Dojo{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">Editar Perfil</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+
+                        <!-- Campos del modelo User -->
+                        <div class="mb-3">
+                            <label for="{{ form.first_name.id_for_label }}" class="form-label">Nombre</label>
+                            {{ form.first_name|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.last_name.id_for_label }}" class="form-label">Apellido</label>
+                            {{ form.last_name|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Correo Electrónico</label>
+                            {{ form.email|add_class:"form-control" }}
+                        </div>
+
+                        <!-- Campos personalizados del perfil -->
+                        <div class="mb-3">
+                            <label for="id_telefono" class="form-label">Teléfono</label>
+                            {{ form.telefono|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_direccion" class="form-label">Dirección</label>
+                            {{ form.direccion|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_avatar" class="form-label">Avatar</label>
+                            {{ form.avatar|add_class:"form-control" }}
+                            {% if user.perfil.avatar %}
+                                <div class="mt-2">
+                                    <img src="{{ user.perfil.avatar.url }}" class="rounded-circle" width="100" height="100" alt="Avatar actual">
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success btn-lg px-4">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
