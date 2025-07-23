@@ -21,6 +21,9 @@ Este es el proyecto final para el curso de CoderHouse **Python**. Es una aplicac
 2. **Django 5.x**
 3. **Base de datos SQLite (configurada por defecto)**
 
+## Nota de aclaracion
+Los usuarios no forman parte de un requerimiento funcional del sitio, el sitio realmente solo contaria con un usuario administrador, las funciones de **registro** e **inicio de sesion** estan para cumplimentar con los requisitos de la entrega final del curso.
+
 ## Instalación
 
 Para instalar y correr este proyecto en tu máquina local, sigue estos pasos:
