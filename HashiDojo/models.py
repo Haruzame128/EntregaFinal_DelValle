@@ -18,3 +18,13 @@ class Contacto(models.Model):
 
     def __str__(self):
         return f"Mensaje de {self.nombre} ({self.email})"
+    
+class Eventos(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.TextField()
+    fecha = models.DateTimeField()
+    ubicacion = models.CharField(max_length=200)
+    imagen = models.ImageField(upload_to='eventos/', blank=True, null=True)
+
+    def __str__(self):
+        return self.nombre

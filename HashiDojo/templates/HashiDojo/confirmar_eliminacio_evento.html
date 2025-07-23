@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Confirmar Eliminación{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="alert alert-warning text-center">
+        <h4>¿Estás seguro de que deseas eliminar el Evento? <strong>{{ object.nombre }} {{ object.apellido }}</strong>?</h4>
+        <form method="post" class="mt-4">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+            <a href="{% url 'inscriptos_listado' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

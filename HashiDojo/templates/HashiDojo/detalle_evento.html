@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Detalle del Evento{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            {% if evento.imagen %}
+                <img src="{{ evento.imagen.url }}" class="img-fluid rounded shadow" alt="{{ evento.nombre }}">
+            {% else %}
+                <img src="{% static 'img/default_evento.jpg' %}" class="img-fluid rounded shadow" alt="Imagen no disponible">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <h2>{{ evento.nombre }}</h2>
+            <hr>
+            <p><strong>Descripción:</strong></p>
+            <p>{{ evento.descripcion|default:"Sin descripción disponible." }}</p>
+
+            {% if evento.fecha %}
+                <p><strong>Fecha y Hora:</strong> {{ evento.fecha|date:"d/m/Y H:i" }}</p>
+            {% endif %}
+            
+            {% if evento.ubicacion %}
+                <p><strong>Ubicación:</strong> {{ evento.ubicacion }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="mt-4">
+        <a href="{% url 'lista_eventos' %}" class="btn btn-secondary">Volver al listado</a>
+    </div>
+</div>
+{% endblock %}
