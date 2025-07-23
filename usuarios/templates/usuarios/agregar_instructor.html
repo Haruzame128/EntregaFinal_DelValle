@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Agregar Instructor - Hashi Dojo{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">Agregar Instructor</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre</label>
+                            {{ form.nombre|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.apellido.id_for_label }}" class="form-label">Apellido</label>
+                            {{ form.apellido|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.biografia.id_for_label }}" class="form-label">Biografía</label>
+                            {{ form.biografia|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.fecha_nacimiento.id_for_label }}" class="form-label">Fecha de Nacimiento</label>
+                            {{ form.fecha_nacimiento|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_foto" class="form-label">Foto</label>
+                            {{ form.foto|add_class:"form-control" }}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success btn-lg px-4">Agregar Instructor</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

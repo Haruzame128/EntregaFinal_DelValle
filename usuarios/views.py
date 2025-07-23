@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, FormView
+from django.views.generic import CreateView, DetailView, FormView, ListView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Perfil
+from .models import Instructor, Perfil
 
-from .forms import PerfilForm, Registro
+from .forms import InstructorForm, PerfilForm, Registro
 
 
 class UserRegistrationView(CreateView):
@@ -21,10 +22,10 @@ class LoginUsuario(LoginView):
     def get_success_url(self):
         return reverse_lazy('inicio')
     
-class LogoutUsuario(LogoutView):
+class LogoutUsuario(LoginRequiredMixin, LogoutView):
     next_page = reverse_lazy('inicio')
     
-class PerfilUsuario(DetailView):
+class PerfilUsuario(LoginRequiredMixin, DetailView):
     model = User
     template_name = 'usuarios/perfil.html'
     context_object_name = 'usuario'
@@ -41,7 +42,7 @@ class PerfilUsuario(DetailView):
         context['perfil'] = perfil
         return context
 
-class EditarPerfilUsuario(FormView):
+class EditarPerfilUsuario(LoginRequiredMixin, FormView):
     template_name = 'usuarios/editar_perfil.html'
     form_class = PerfilForm
     success_url = reverse_lazy('perfil')
@@ -54,3 +55,22 @@ class EditarPerfilUsuario(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+class ListaInstructores(ListView):
+    model = Instructor
+    template_name = 'usuarios/instructores.html'
+    context_object_name = 'instructores'
+
+    def get_queryset(self):
+        return Instructor.objects.filter(activo=True)
+    
+class AgregarInstructorView(LoginRequiredMixin, CreateView):
+    model = Instructor
+    form_class = InstructorForm
+    template_name = 'usuarios/agregar_instructor.html'
+    success_url = reverse_lazy('instructores')
+
+class InstructorDetailView(DetailView):
+    model = Instructor
+    template_name = 'usuarios/detalle_instructor.html'
+    context_object_name = 'instructor'

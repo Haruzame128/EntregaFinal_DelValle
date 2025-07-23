@@ -13,6 +13,9 @@
                     <h4 class="mb-0">Editar Perfil</h4>
                 </div>
                 <div class="card-body">
+                    <div class="text-end mb-3">
+                        <a href="{% url 'password_change' %}" class="btn btn-warning">Cambiar Contraseña</a>
+                    </div>
                     <form method="post" enctype="multipart/form-data" novalidate>
                         {% csrf_token %}
 

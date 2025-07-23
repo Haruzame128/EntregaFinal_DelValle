@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Acerca de mí{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Acerca de mí</h2>
+    <div class="row align-items-center">
+        <div class="col-md-7">
+            <p>
+                Soy <strong>Analista de Sistemas</strong>, egresado de la <em>Universidad Nacional de la Patagonia Austral – Unidad Académica Caleta Olivia</em>.
+            </p>
+            <p>
+                A lo largo de mi formación y experiencia profesional, he desarrollado un fuerte interés por el diseño y desarrollo de aplicaciones web, así como por la implementación de soluciones tecnológicas que aporten valor real a las personas y organizaciones.
+            </p>
+            <p>
+                Me apasiona aprender constantemente, explorar nuevas herramientas y lenguajes de programación, y trabajar en proyectos que combinen creatividad, lógica y utilidad.
+            </p>
+            <p>
+                Además, soy uno de los instructores de la escuela de aikido <strong>Hashi-Dojo</strong>, donde tengo el orgullo de transmitir los valores de esta disciplina que fomenta el respeto, la armonía y el crecimiento personal.
+            </p>
+            <p>
+                Este sitio refleja parte de mi compromiso con el desarrollo profesional y personal, integrando la tecnología con la difusión de disciplinas que promueven el crecimiento físico, mental y social.
+            </p>
+        </div>
+        <div class="col-md-5 text-center">
+            <img src="{% static 'images/logo.png' %}" alt="Foto personal" class="img-fluid rounded shadow" style="max-height: 300px;">
+        </div>
+    </div>
+</div>
+{% endblock %}

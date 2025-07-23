@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Acceso Denegado{% endblock %}
+{% block content %}
+<div class="container text-center my-5">
+    <h2 class="text-danger">Acceso Denegado</h2>
+    <p>Necesitás iniciar sesión para ver esta sección.</p>
+    <a href="{% url 'inicio' %}" class="btn btn-primary mt-3">Volver al inicio</a>
+</div>
+{% endblock %}

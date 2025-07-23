@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Detalle del Instructor{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="{{ instructor.foto.url }}" class="img-fluid rounded shadow" alt="{{ instructor.nombre }}">
+        </div>
+        <div class="col-md-8">
+            <h2>{{ instructor.nombre }} {{ instructor.apellido }}</h2>
+            <hr>
+            <p><strong>Biografía:</strong></p>
+            <p>{{ instructor.biografia|default:"Sin biografía disponible." }}</p>
+
+            <!-- Mostrar fecha de nacimiento si no es null -->
+            {% if instructor.fecha_nacimiento %}
+                <p><strong>Fecha de Nacimiento:</strong> {{ instructor.fecha_nacimiento|date:"d/m/Y" }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="mt-4">
+        <a href="{% url 'instructores' %}" class="btn btn-secondary">Volver al listado</a>
+    </div>
+</div>
+{% endblock %}

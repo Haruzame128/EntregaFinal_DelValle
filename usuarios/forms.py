@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Perfil
+from .models import Instructor, Perfil
 
 class Registro(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -44,5 +44,11 @@ class PerfilForm(forms.ModelForm):
             perfil.avatar = self.cleaned_data['avatar']
         perfil.save()
         return user
+    
+class InstructorForm(forms.ModelForm):
+    class Meta:
+        model = Instructor
+        fields = ['nombre', 'apellido', 'biografia', 'foto', 'fecha_nacimiento']
+    fecha_nacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
 
 

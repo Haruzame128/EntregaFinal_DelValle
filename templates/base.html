@@ -25,12 +25,11 @@
                     <ul class="navbar-nav ms-auto align-items-center">
 
                         <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Instructores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'instructores' %}">Instructores</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'clases' %}">Clases</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'inscripcion' %}">Inscripción</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}">Contacto</a></li>
-
                         {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'lista_inscriptos' %}">Inscriptos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}">Contacto</a></li>
                             <li class="nav-item">
                                 <span class="navbar-text text-white mx-2">
                                     ¡Bienvenido, {{ user.first_name|default:user.username }}!
@@ -46,6 +45,8 @@
                                 </form>
                             </li>
                         {% else %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'inscripcion' %}">Inscripción</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}">Contacto</a></li>
                             <li class="nav-item"><a class="btn btn-outline-light ms-2" href="{% url 'login' %}">Iniciar sesión</a></li>
                             <li class="nav-item"><a class="btn btn-success ms-2" href="{% url 'registro' %}">Registrarse</a></li>
                         {% endif %}
@@ -69,7 +70,7 @@
     <footer class="bg-dark text-white text-center py-3 mt-auto">
         <small>
             &copy; 2025 AdeS. Del Valle Eduardo Andres - Escuela de Aikido |
-            <a href="{% url 'acerca_de_mi' %}" class="text-white text-decoration-underline">Acerca de mí</a>
+            <a href="{% url 'acercademi' %}" class="text-white text-decoration-underline">Acerca de mí</a>
         </small>
     </footer>
 
