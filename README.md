@@ -33,3 +33,5 @@ Para instalar y correr este proyecto en tu máquina local, sigue estos pasos:
    git clone https://github.com/Haruzame128/EntregaFinal_DelValle.git
 
 ## Video de muestra
+
+- https://youtu.be/R5fQzillchA
